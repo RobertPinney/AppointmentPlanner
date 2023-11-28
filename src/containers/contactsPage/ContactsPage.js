@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from "react";
-
-import { ContactForm } from "../../components/contactForm/ContactForm";
+import { useState, useEffect } from "react";
+import ContactForm from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
 
-export const ContactsPage = () => {
-  /*
-  Define state variables for 
-  contact info and duplicate check
-  */
+export default function ContactsPage({ contacts, newContact }) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (e.target.value === name) return window.alert("Name is a dupicate");
+
+    setName(e.target.value);
     /*
     Add contact info and clear data
     if the contact name is not a duplicate
@@ -25,7 +27,13 @@ export const ContactsPage = () => {
   return (
     <div>
       <section>
-        <h2>Add Contact</h2> 
+        <h2>Add Contact</h2>
+        <ContactForm
+          onHandleSubmit={handleSubmit}
+          setPhone={setPhone}
+          setName={setName}
+          setEmail={setEmail}
+        />
       </section>
       <hr />
       <section>
@@ -33,4 +41,4 @@ export const ContactsPage = () => {
       </section>
     </div>
   );
-};
+}

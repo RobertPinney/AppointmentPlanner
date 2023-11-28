@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { AppointmentForm } from "../../components/appointmentForm/AppointmentForm";
 import { TileList } from "../../components/tileList/TileList";
 
-export const AppointmentsPage = () => {
+export default function AppointmentsPage() {
   /*
   Define state variables for 
   appointment info
@@ -14,7 +14,6 @@ export const AppointmentsPage = () => {
     /*
     Add contact info and clear data  
     */
-   
   };
 
   return (
@@ -28,4 +27,4 @@ export const AppointmentsPage = () => {
       </section>
     </div>
   );
-};
+}
