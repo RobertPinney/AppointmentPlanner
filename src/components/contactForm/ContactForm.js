@@ -18,11 +18,11 @@ export default function ContactForm({
 
       <label>Phone</label>
       <input
-        pattern="^((0047)?|(+47)?)[1-9] ?\d ?\d ?\d ?\d ?\d ?\d ?\d$"
-        placeholder="00-00-00-00"
+        pattern="(0047|\+47|47)?\d{8}"
+        placeholder="00000000"
         value={phone}
         onChange={(e) => setPhone(Number(e.target.value))}
-        type="text"
+        type="tel"
       ></input>
 
       <label>Email</label>

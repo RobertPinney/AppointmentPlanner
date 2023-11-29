@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ContactForm from "../../components/contactForm/ContactForm";
 import { TileList } from "../../components/tileList/TileList";
 
-export default function ContactsPage({ contacts, newContact }) {
+export default function ContactsPage({ contacts, onNewContact }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -10,13 +10,23 @@ export default function ContactsPage({ contacts, newContact }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (e.target.value === name) return window.alert("Name is a dupicate");
+    if (!name || !phone || !email) return;
 
-    setName(e.target.value);
-    /*
-    Add contact info and clear data
-    if the contact name is not a duplicate
-    */
+    const id = crypto.randomUUID();
+    const newContacts = {
+      id,
+      name,
+      phone,
+      email,
+    };
+
+    contacts.map((contact) => contact.name).includes(newContacts.name)
+      ? window.alert(` Contact "${newContacts.name}" is a duplicate`)
+      : onNewContact(...contacts, newContacts);
+
+    setName("");
+    setPhone("");
+    setEmail("");
   };
 
   /*
@@ -29,15 +39,19 @@ export default function ContactsPage({ contacts, newContact }) {
       <section>
         <h2>Add Contact</h2>
         <ContactForm
-          onHandleSubmit={handleSubmit}
-          setPhone={setPhone}
+          name={name}
           setName={setName}
+          phone={phone}
+          setPhone={setPhone}
+          email={email}
           setEmail={setEmail}
+          onHandleSubmit={handleSubmit}
         />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
+        <TileList contacts={contacts} />
       </section>
     </div>
   );
