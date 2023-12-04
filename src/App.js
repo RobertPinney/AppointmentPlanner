@@ -12,9 +12,14 @@ import ContactsPage from "./containers/contactsPage/ContactsPage";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   function handleNewContact(contact) {
     setContacts((contacts) => [...contacts, contact]);
+  }
+
+  function handleNewAppontment(appointement) {
+    setAppointments((appointments) => [...appointments, appointement]);
   }
 
   const router = createBrowserRouter(
@@ -27,7 +32,16 @@ export default function App() {
             <ContactsPage contacts={contacts} onNewContact={handleNewContact} />
           }
         />
-        <Route path={ROUTES.APPOINTMENTS} element={<AppointmentsPage />} />
+        <Route
+          path={ROUTES.APPOINTMENTS}
+          element={
+            <AppointmentsPage
+              appointments={appointments}
+              onNewAppointment={handleNewAppontment}
+              contacts={contacts}
+            />
+          }
+        />
       </Route>
     )
   );

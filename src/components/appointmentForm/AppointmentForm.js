@@ -1,13 +1,11 @@
 import React from "react";
 
 const getTodayString = () => {
-  const [month, day, year] = new Date()
-    .toLocaleDateString("en-US")
-    .split("/");
+  const [month, day, year] = new Date().toLocaleDateString("en-US").split("/");
   return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 };
 
-export const AppointmentForm = ({
+export default function AppointmentForm({
   contacts,
   title,
   setTitle,
@@ -17,10 +15,20 @@ export const AppointmentForm = ({
   setDate,
   time,
   setTime,
-  handleSubmit
-}) => {
-
+  onhandleSubmit,
+}) {
   return (
-    <></>
+    <form onSubmit={onhandleSubmit}>
+      <label>Name</label>
+      <input></input>
+
+      <label>Date</label>
+      <input></input>
+
+      <label>Time</label>
+      <input></input>
+
+      <button>Submit</button>
+    </form>
   );
-};
+}
