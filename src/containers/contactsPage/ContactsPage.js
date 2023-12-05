@@ -52,7 +52,7 @@ export default function ContactsPage({ contacts, onNewContact }) {
 
   return (
     <div>
-      <section>
+      <section className="contact">
         <h2>Add Contact</h2>
         <ContactForm
           name={name}

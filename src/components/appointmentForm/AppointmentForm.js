@@ -1,4 +1,3 @@
-import React from "react";
 import ContactPicker from "../contactPicker/ContactPicker";
 
 const getTodayString = () => {

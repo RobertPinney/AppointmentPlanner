@@ -38,7 +38,7 @@ export default function AppointmentsPage({
 
   return (
     <div>
-      <section>
+      <section className="appointment">
         <h2>Add Appointment</h2>
         <AppointmentForm
           {...{

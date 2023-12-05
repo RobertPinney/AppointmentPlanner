@@ -1,0 +1,19 @@
+button {
+  color: white;
+  background-color: teal;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.contact,
+.appointment {
+  width: 300px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.spacing {
+  margin-top: 40px;
+}
