@@ -13,10 +13,17 @@ export default function AppointmentsPage({
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
 
+  function handleOnChange(e) {
+    setContact(e.target.value);
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!title || !contact || !date || !time) return;
+
     const newAppointment = {
+      title,
       contact,
       date,
       time,
@@ -24,7 +31,7 @@ export default function AppointmentsPage({
 
     onNewAppointment(newAppointment);
 
-    setContact("");
+    setTitle("");
     setDate("");
     setTime("");
   };
@@ -45,13 +52,14 @@ export default function AppointmentsPage({
             time,
             setTime,
           }}
-          onhandleSubmit={handleSubmit}
+          onHandleSubmit={handleSubmit}
+          onChange={handleOnChange}
         />
       </section>
       <hr />
       <section>
         <h2>Appointments</h2>
-        {/* <TileList appointments={appointments} /> */}
+        <TileList data={appointments} />
       </section>
     </div>
   );

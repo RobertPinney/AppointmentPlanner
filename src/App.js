@@ -18,8 +18,8 @@ export default function App() {
     setContacts((contacts) => [...contacts, contact]);
   }
 
-  function handleNewAppontment(appointement) {
-    setAppointments((appointments) => [...appointments, appointement]);
+  function handleNewAppontment(appointment) {
+    setAppointments((appointments) => [...appointments, appointment]);
   }
 
   const router = createBrowserRouter(

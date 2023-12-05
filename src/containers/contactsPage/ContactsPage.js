@@ -29,9 +29,9 @@ export default function ContactsPage({ contacts, onNewContact }) {
     //   onNewContact(newContacts);
     // }
 
-    // // Option 2
-    // for (contacts.name in contacts) {
-    //   if (contacts.name === newContacts.name) {
+    // // Option 2 (not currently working)
+    // contacts.forEach((contact)) => {
+    //   if (contact.name === newContacts.name) {
     //     window.alert(`Contact "${newContacts.name}" is a duplicate`);
     //     return;
     //   }
@@ -49,11 +49,6 @@ export default function ContactsPage({ contacts, onNewContact }) {
     setPhone("");
     setEmail("");
   };
-
-  /*
-  Using hooks, check for contact name in the 
-  contacts array variable in props
-  */
 
   return (
     <div>

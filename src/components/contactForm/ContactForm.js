@@ -28,7 +28,7 @@ export default function ContactForm({
       <label>Email</label>
       <input
         value={email}
-        type="text"
+        type="email"
         onChange={(e) => setEmail(e.target.value)}
       ></input>
 
