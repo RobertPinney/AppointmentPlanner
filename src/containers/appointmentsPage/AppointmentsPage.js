@@ -12,9 +12,11 @@ export default function AppointmentsPage({
   const [contact, setContact] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [contactsValue, setContactsValue] = useState("placeholder");
 
   function handleOnChange(e) {
     setContact(e.target.value);
+    setContactsValue(e.target.value);
   }
 
   const handleSubmit = (e) => {
@@ -34,6 +36,7 @@ export default function AppointmentsPage({
     setTitle("");
     setDate("");
     setTime("");
+    setContactsValue("placeholder");
   };
 
   return (
@@ -51,6 +54,7 @@ export default function AppointmentsPage({
             setDate,
             time,
             setTime,
+            contactsValue,
           }}
           onHandleSubmit={handleSubmit}
           onChange={handleOnChange}
