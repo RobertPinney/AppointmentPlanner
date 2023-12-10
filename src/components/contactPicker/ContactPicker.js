@@ -1,8 +1,13 @@
-export default function ContactPicker({ contacts, onChange, name }) {
+export default function ContactPicker({
+  contacts,
+  onChange,
+  name,
+  contactsValue,
+}) {
   return (
-    <select name={name} onChange={onChange}>
-      <option key="default" value="">
-        No Contact Selected
+    <select name={name} onChange={onChange} value={contactsValue}>
+      <option key="default" value="placeholder">
+        No contact selected
       </option>
       {contacts.map((contact, i) => {
         return (
