@@ -17,6 +17,7 @@ export default function AppointmentForm({
   setTime,
   onHandleSubmit,
   onChange,
+  contactsValue,
 }) {
   return (
     <form onSubmit={onHandleSubmit}>
@@ -32,6 +33,7 @@ export default function AppointmentForm({
         setContact={setContact}
         onChange={onChange}
         name="contact"
+        contactsValue={contactsValue}
       />
 
       <label>Date</label>
